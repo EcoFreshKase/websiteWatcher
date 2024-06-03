@@ -1,0 +1,1 @@
+WEBSITE_CHECKED_SIGNAL="checked_a_website"
