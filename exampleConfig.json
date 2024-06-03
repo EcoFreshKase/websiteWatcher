@@ -4,6 +4,11 @@
             "url": "https://en.wikipedia.org/wiki/Python_(programming_language)",
             "elementQuery": "tr",
             "expectedExpressions": ["Stable release", "3.12.3"]
+        },
+        {
+            "url": "http://localhost:8000/",
+            "elementQuery": "h1",
+            "expectedExpressions": ["My Website"]
         }
     ]
 }
