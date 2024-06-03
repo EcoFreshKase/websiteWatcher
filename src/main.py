@@ -13,3 +13,9 @@ dispatcher.connect(
     signal=dispatcher.Any,
     sender=dispatcher.Any
 )
+
+for watcher in watchers:
+    watcher.startChecking()
+    print("started watching", watcher)
+
+sleep(10)

@@ -1,9 +1,9 @@
 import re
-from bs4 import BeautifulSoup
 import requests
-
+from bs4 import BeautifulSoup
 from .websiteWatcherEvent import WebsiteWatcherEvent
-from ..config import WEBSITE_CHECKED_SIGNAL
+from ..config import WEBSITE_CHECKED_SIGNAL, WEBSITE_CHECKING_INTERVAL
+from ..EventHandling.repeatEvery import repeatEvery
 from ..EventHandling.emitAsEvent import emitAsEvent
 
 
@@ -12,6 +12,19 @@ class WebsiteWatcher:
         self.url = url
         self.elementQuery = elementQuery
         self.expectedExpressions = [re.compile(expectedText) for expectedText in expectedExpressions]
+        self.checking = False
+
+    def startChecking(self):
+        """Start checking the website non blocking for the expected expressions in a specific interval. 
+        """
+
+        if not self.checking:
+            self.checking = True
+            self.__innerStartChecking()
+
+    @repeatEvery(WEBSITE_CHECKING_INTERVAL)
+    def __innerStartChecking(self):
+        self.check()
 
     @emitAsEvent(signal=WEBSITE_CHECKED_SIGNAL)
     def check(self) -> WebsiteWatcherEvent:
