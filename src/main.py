@@ -1,6 +1,6 @@
 import json
 from time import sleep
-from lib.WebsiteWatcher import WebsiteWatcher
+from lib.WebsiteWatcher.websiteWatcher import WebsiteWatcher
 from pydispatch import dispatcher
 from lib.EventHandling.debugListener import debug_listener
 

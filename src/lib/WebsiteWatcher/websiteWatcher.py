@@ -1,8 +1,8 @@
 import re
 from bs4 import BeautifulSoup
 import requests
-from .config import WEBSITE_CHECKED_SIGNAL
-from .EventHandling.emitAsEvent import emitAsEvent
+from ..config import WEBSITE_CHECKED_SIGNAL
+from ..EventHandling.emitAsEvent import emitAsEvent
 
 
 class WebsiteWatcher:
