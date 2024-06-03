@@ -13,9 +13,3 @@ dispatcher.connect(
     signal=dispatcher.Any,
     sender=dispatcher.Any
 )
-
-while True:
-    for watcher in watchers:
-        print(watcher.check())
-    sleep(10)
-
