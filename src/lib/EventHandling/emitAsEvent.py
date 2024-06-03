@@ -1,12 +1,12 @@
 from functools import wraps
 from pydispatch import dispatcher
 
-def emitAsEvent(signal):
+def emitAsEvent(signal: str):
     """
     Decorator function that emits the result of the function wrapped as an event.
 
     Args:
-        signal (type): Signal of the event emitted.
+        signal (str): Signal of the event emitted.
     """
     def decorator(func):
         @wraps(func)
