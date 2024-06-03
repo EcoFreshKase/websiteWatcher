@@ -3,5 +3,5 @@ class WebsiteWatcherEvent:
         self.websiteUrl = websiteUrl
         self.checkResult = checkResult
         
-        def __str__(self):
-            return f"WebsiteWatcherEvent(website='{self.websiteUrl}', checkResult='{self.checkResult}')"
+    def __str__(self):
+        return f"WebsiteWatcherEvent(website='{self.websiteUrl}', checkResult='{self.checkResult}')"
