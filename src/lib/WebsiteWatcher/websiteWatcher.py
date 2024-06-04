@@ -6,7 +6,6 @@ from ..config import WEBSITE_CHECKED_SIGNAL, WEBSITE_CHECKING_INTERVAL
 from ..EventHandling.repeatEvery import repeatEvery
 from ..EventHandling.emitAsEvent import emitAsEvent
 
-
 class WebsiteWatcher:
     def __init__(self, url: str, elementQuery: str, expectedExpressions: list[str]):
         self.url = url
