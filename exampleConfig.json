@@ -10,5 +10,11 @@
             "elementQuery": "h1",
             "expectedExpressions": ["My Website"]
         }
-    ]
+    ],
+    "emailNotification": {
+        "googleSmtp": {
+            "sender": "your_email_address@gmai.com",
+            "appPassword":"get your appPassword here: https://myaccount.google.com/apppasswords"
+        }
+    }
 }

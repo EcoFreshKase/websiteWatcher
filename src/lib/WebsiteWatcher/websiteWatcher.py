@@ -1,8 +1,8 @@
 import re
 import requests
 from bs4 import BeautifulSoup
-from .websiteWatcherEvent import WebsiteWatcherEvent
-from ..config import WEBSITE_CHECKED_SIGNAL, WEBSITE_CHECKING_INTERVAL
+from ..EventHandling.Events.websiteWatcherEvent import WebsiteWatcherEvent
+from ..config import WEBSITE_WATCHER_SIGNAL, WEBSITE_CHECKING_INTERVAL
 from ..EventHandling.repeatEvery import repeatEvery
 from ..EventHandling.emitAsEvent import emitAsEvent
 
@@ -25,7 +25,7 @@ class WebsiteWatcher:
     def __innerStartChecking(self):
         self.check()
 
-    @emitAsEvent(signal=WEBSITE_CHECKED_SIGNAL)
+    @emitAsEvent(signal=WEBSITE_WATCHER_SIGNAL)
     def check(self) -> WebsiteWatcherEvent:
         r = requests.get(self.url)
         soup = BeautifulSoup(r.text, 'html.parser')

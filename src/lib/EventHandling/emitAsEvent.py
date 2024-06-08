@@ -14,10 +14,11 @@ def emitAsEvent(signal: str):
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-            if not args or not isinstance(args[0], object):
-                raise TypeError("The emitAsEvent decorator can only be used on methods.")
+            sender = func
+            if args and isinstance(args[0], object):
+                sender = args[0]
             result = func(*args, **kwargs)
-            dispatcher.send(signal=signal, sender=args[0], result=result)
+            dispatcher.send(signal=signal, sender=sender, event=result)
             return result
         return wrapper
     return decorator
